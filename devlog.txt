@@ -27,10 +27,14 @@ anishS -- 2017-11-16 19:22
 Added Design Document
 
 charlesW -- 2017-11-17 6:15
-Updated design doc
+Updated design doc - Added summaries to individual parts
 
 anishS -- 2017-11-19 14:38
-Updated Design Document
+Updated Design Document - Integrated peer edits. 
+Further explained UI.
+Further detailed component map.
 
 calebS -- 2017-11-20 20:08:39
-Wrote script that processed the html for popular categories and wrote a dictionary to topcategories.txt , which shows the popular categories along with the corresponding id to be used with the api
+Wrote script that processed the html for popular categories and wrote a dictionary to 
+topcategories.txt , which shows the popular categories along with the corresponding id 
+to be used with the api
