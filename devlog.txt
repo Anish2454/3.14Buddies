@@ -15,22 +15,22 @@ SoftDev1 Pd 7
 
 \/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
 
-shenoyA -- 2017-11-14 12:45
+anishS -- 2017-11-14 12:45
 Added Devlog
 Created Repo
 Decided on Jeopardy API with Watson Text-To-Speech API
 
-shenoyA -- 2017-11-15 13:15
+anishS -- 2017-11-15 13:15
 Switched Watson API to Getty Images because demo machine may not have sound.
 
-shenoyA -- 2017-11-16 19:22
+anishS -- 2017-11-16 19:22
 Added Design Document
 
-wengC -- 2017-11-17 6:15
+charlesW -- 2017-11-17 6:15
 Updated design doc
 
-shenoyA -- 2017-11-19 14:38
+anishS -- 2017-11-19 14:38
 Updated Design Document
-smith-salzbergC -- 2017-11-20 20:08:39
-Wrote script that processed the html for popular categories and wrote a dictionary to topcategories.txt , which shows the popular categories along with the corresponding id to be used with the api
 
+calebS -- 2017-11-20 20:08:39
+Wrote script that processed the html for popular categories and wrote a dictionary to topcategories.txt , which shows the popular categories along with the corresponding id to be used with the api
