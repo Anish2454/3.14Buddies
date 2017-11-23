@@ -48,3 +48,6 @@ calebS -- 2017-11-23 11:52:26
 Finished question generator given a category. PROBLEM: same questions would be generated each 
 time given a category. Must find a way to randomize.
 
+calebS -- 2017-11-23 11:57:19
+Added randomness to question selection by mixing the list of clues after the dictionary is read
+
