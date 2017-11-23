@@ -1,9 +1,10 @@
 import urllib2
 import json
+import random
 
 f = open("topcategories.txt")
 catdict = eval(f.read())
-print type(catdict)
+
 def questiondict(cat):
     retdict = {}
     if cat not in catdict:
@@ -14,6 +15,7 @@ def questiondict(cat):
     raw = uResp.read()
     dat = json.loads(raw)
     clues = dat["clues"]
+    random.shuffle(clues) # so the same questions aren't chosen each time
     
     x=0
     i=1
@@ -27,5 +29,5 @@ def questiondict(cat):
             x = -1
         x += 1
     return retdict
-print questiondict('History')
+print questiondict('History') #test
         
