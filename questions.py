@@ -1,21 +1,14 @@
 import urllib2
 import json
 
-#f = open("topcategories.txt")
-#catdict = f.read()
-
-catdict = {}
-with open("topcategories.txt") as f:
-    for line in f:
-       (key, val) = line.split(",")
-       catdict[key] = val
-
+f = open("topcategories.txt")
+catdict = eval(f.read())
+print type(catdict)
 def questiondict(cat):
     retdict = {}
     if cat not in catdict:
         print "error"
         return
-    print catdict
     url = "http://www.jservice.io/api/category?id=" + str(catdict[cat])
     uResp = urllib2.urlopen( url )
     raw = uResp.read()
@@ -25,7 +18,7 @@ def questiondict(cat):
     x=0
     i=1
     while i < 6:
-        if clues[x]["values"] == i*100:
+        if clues[x]["value"] == i*100:
             retdict[i*100] = [ clues[x]["question"], clues[x]["answer"] ]
             i += 1
             x = -1
