@@ -43,3 +43,7 @@ calebS -- 2017-11-22 13:18:39
 Worked on method that takes an input of a category name and outputs a dictionary with
 the point value as the key and the question and answer in a list as the value. Currently
 having trouble converting the txt file that contains a dictionary into a dictionary variable.
+calebS -- 2017-11-23 11:52:26
+
+ Finished question generator given a category. PROBLEM: same questions would be generated each time given a category. Must find a way to randomize
+
