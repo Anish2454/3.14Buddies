@@ -30,13 +30,13 @@ charlesW -- 2017-11-17 6:15
 Updated design doc - Added summaries to individual parts
 
 anishS -- 2017-11-19 14:38
-Updated Design Document - Integrated peer edits. 
+Updated Design Document - Integrated peer edits.
 Further explained UI.
 Further detailed component map.
 
 calebS -- 2017-11-20 20:08:39
-Wrote script that processed the html for popular categories and wrote a dictionary to 
-topcategories.txt , which shows the popular categories along with the corresponding id 
+Wrote script that processed the html for popular categories and wrote a dictionary to
+topcategories.txt , which shows the popular categories along with the corresponding id
 to be used with the api
 
 calebS -- 2017-11-22 13:18:39
@@ -45,9 +45,14 @@ the point value as the key and the question and answer in a list as the value. C
 having trouble converting the txt file that contains a dictionary into a dictionary variable.
 
 calebS -- 2017-11-23 11:52:26
-Finished question generator given a category. PROBLEM: same questions would be generated each 
+Finished question generator given a category. PROBLEM: same questions would be generated each
 time given a category. Must find a way to randomize.
 
 calebS -- 2017-11-23 11:57:19
 Added randomness to question selection by mixing the list of clues after the dictionary is read
 
+anishS -- 2017-11-25 22:05:56
+Moved Questions Functions to Utils Folder
+Added python file for gettyimages
+Added ability to load in gettyImages API Key from TXT file
+Bugs: "Open" isnt surrounded by try catch so be sure to have the txt file present
