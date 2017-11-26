@@ -63,3 +63,6 @@ worked on index route with form handling
 shakilR -- 2017-11-26 01:25:39
 set dummy definitions for routes (to be changed later)
 
+shakilR -- 2017-11-26 15:27:23
+set up create_game route with questions.py
+
