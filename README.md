@@ -1,20 +1,32 @@
 # Team 3.14Buddies -- Shakil Rafi, Anish Shenoy, Caleb Smith-Salzberg, Charles Weng
-## SoftDev Fall Project #02 - ArRESTed Development
+### SoftDev Fall Project #02 - ArRESTed Development
 
 We put the PI in API
 
-### Overview
+## Overview
 
-Our webiste mimicks the popular game show Jeopardy! We integrated two APIs: [Jservice](http://www.jservice.io/) and [GettyImages](http://developers.gettyimages.com/en/). Two players enter their names and select 5 categories they'd like to compete in on the homepage. Next, a board of 20 questions sorted by value is shown and players can choose the question theyd like to answer. The question is displayed and the user can input their answer. Once an answer is submitted, the correct answer is shown along with a corresponding image of the answer. Te site keeps track of each user's point total throughout the game. The game ends once all questions have been answered.
+Our webiste mimicks the popular game show Jeopardy! We integrated two APIs: [Jservice](http://www.jservice.io/) and [GettyImages](http://developers.gettyimages.com/en/). Two players enter their names and select 5 categories they'd like to compete in on the homepage. Next, a board of 25 questions arrranged by category and value is shown and players can choose the question theyd like to answer. The question is displayed and the user can input their answer. Once an answer is submitted, the correct answer is shown along with a corresponding image of the answer. Te site keeps track of each user's point total throughout the game. The game ends once all questions have been answered.
 
-### Dependencies
+## Dependencies
 
-1. Python
-2. Flask
+### Python 2.7
+Installation:
+```bash
+$ sudo apt install python2.7
+```
 
-If you don't have flask installed, just run this command in your terminal:
+### Pip
+Installation:
+```bash
+$ curl https://bootstrap.pypa.io/get-pip.py > get-pip.py
+$ sudo bash get-pip.py
+```
 
-```$ pip install flask```
+### Flask
+Installation:
+```bash
+$ pip install flask --user
+```
 
 ### Instructions
 
@@ -30,9 +42,7 @@ If you don't have flask installed, just run this command in your terminal:
   
 3. Run the application
   * In the terminal, run
-    ```$ python app.py```
+    ```bash
+    $ python app.py
+    ```
   * Navigate to "localhost:5000" in your browser and have fun!
-
-
-
-
