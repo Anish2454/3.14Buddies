@@ -1,6 +1,8 @@
 # Team 3.14Buddies -- Shakil Rafi, Anish Shenoy, Caleb Smith-Salzberg, Charles Weng
 ## SoftDev Fall Project #02 - ArRESTed Development
 
+We put the PI in API
+
 ### Overview
 
 Our webiste mimicks the popular game show Jeopardy! We integrated two APIs: [Jservice](http://www.jservice.io/) and [GettyImages](http://developers.gettyimages.com/en/). Two players enter their names and select 5 categories they'd like to compete in on the homepage. Next, a board of 20 questions sorted by value is shown and players can choose the question theyd like to answer. The question is displayed and the user can input their answer. Once an answer is submitted, the correct answer is shown along with a corresponding image of the answer. Te site keeps track of each user's point total throughout the game. The game ends once all questions have been answered.
