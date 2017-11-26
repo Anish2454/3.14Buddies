@@ -4,9 +4,7 @@
   <!-- base template -->
 
   <head>
-    {% block title %}
-    <title>{{title}}</title>
-    {% endblock title %}
+    <title> {% block title %} Jeopardy {% endblock %} </title>
   </head>
 
   <body>
@@ -16,5 +14,11 @@
     {{ msg }}<br>
     {% endfor %}
     {% endblock body%}
+
+    {% block footer %}
+      <center>
+        <small>Copyright 3.14 Buddies 2017</small>
+      </center>
+    {% endblock %}
   </body>
 </html>

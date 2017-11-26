@@ -18,6 +18,7 @@ def in_game(func):
 # for creating games or redirecting if game already exists in session
 @app.route('/')
 def index():
+    print "\n*** / ***"
     # check if game already exists
     if 'game_board' in session:
         return redirect('/play')
@@ -26,7 +27,7 @@ def index():
     categories = []
 
     # check for form info
-    if request.args.get('submit'):
+    if request.args.get("submit"):
         valid = True
         players = get_players_from_form()
         if len(players) == 0:
@@ -42,7 +43,7 @@ def index():
             session['players'] = players
             session['categories'] = categories
             return redirect('/create_game')
-    return render_template('base.html',
+    return render_template('home.html',
             players=players,
             categories=questions.get_categories(),
             chosen=categories)
@@ -67,6 +68,7 @@ def get_categories_from_form():
 # the page itself should redirect to '/created_game'
 @app.route('/create_game')
 def create_game_waiting():
+    print "\n*** /create_game ***"
     if not 'categories' in session or not 'players' in session:
         return redirect('/')
     if 'game_board' in session:
@@ -80,6 +82,7 @@ def create_game_waiting():
 # once game is created, redirect to play route
 @app.route('/created_game')
 def create_game():
+    print "\n*** /created_game ***"
     if not 'categories' in session or not 'players' in session:
         return redirect('/')
     categories = session['categories']
