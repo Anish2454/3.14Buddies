@@ -69,3 +69,6 @@ set up create_game route with questions.py
 anishS -- 2017-11-26 16:17:34
 Updated README to include instructions on how to run the app
 and procure API Keys
+
+anishS -- 2017-11-26 17:23:45
+Added HTML Templates for pages
