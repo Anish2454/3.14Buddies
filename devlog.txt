@@ -56,3 +56,10 @@ Moved Questions Functions to Utils Folder
 Added python file for gettyimages
 Added ability to load in gettyImages API Key from TXT file
 Bugs: "Open" isnt surrounded by try catch so be sure to have the txt file present
+
+shakilR -- 2017-11-26 01:11:29
+worked on index route with form handling
+
+shakilR -- 2017-11-26 01:25:39
+set dummy definitions for routes (to be changed later)
+
