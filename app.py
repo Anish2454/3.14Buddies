@@ -1,5 +1,5 @@
-from flask import Flask, render_template, redirect, session, flash, reqeust
-from util import import questions
+from flask import Flask, render_template, redirect, session, flash, request
+from util import questions
 
 app = Flask(__name__)
 
@@ -30,8 +30,8 @@ def index():
             session['players'] = players
             session['categories'] = categories
             return redirect('/create_game')
-    return render_template('base.html', 
-            players=players, 
+    return render_template('base.html',
+            players=players,
             categories=categories)
 
 def get_players_from_form():

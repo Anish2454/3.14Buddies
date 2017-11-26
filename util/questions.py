@@ -2,7 +2,7 @@ import urllib2
 import json
 import random
 
-f = open("topcategories.txt")
+f = open("util/topcategories.txt")
 catdict = eval(f.read())
 
 def questiondict(cat):
@@ -16,7 +16,7 @@ def questiondict(cat):
     dat = json.loads(raw)
     clues = dat["clues"]
     random.shuffle(clues) # so the same questions aren't chosen each time
-    
+
     x=0
     i=1
     while i < 6:
@@ -30,4 +30,3 @@ def questiondict(cat):
         x += 1
     return retdict
 print questiondict('History') #test
-        
