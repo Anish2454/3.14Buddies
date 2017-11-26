@@ -1,10 +1,22 @@
 from flask import Flask, render_template, redirect, session, flash, request
 from util import questions
+from functools import wraps
+import os
 
 app = Flask(__name__)
+app.secret_key = os.urandom(32)
+
+# decorator for checking if user is in a game before continuing
+def in_game(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        if 'game_board' in session:
+            return func(*args, **kwargs)
+        return redirect('/')
+    return wrapper
 
 # for creating games or redirecting if game already exists in session
-@app.route('/', methods=['GET'])
+@app.route('/')
 def index():
     # check if game already exists
     if 'game_board' in session:
@@ -32,7 +44,8 @@ def index():
             return redirect('/create_game')
     return render_template('base.html',
             players=players,
-            categories=categories)
+            categories=questions.get_categories(),
+            chosen=categories)
 
 def get_players_from_form():
     players = []
@@ -51,7 +64,7 @@ def get_categories_from_form():
     return categories
 
 # send to 'waiting' page until the api responds with game created
-# the page itself should redirect to play
+# the page itself should redirect to '/created_game'
 @app.route('/create_game')
 def create_game_waiting():
     if not 'categories' in session or not 'players' in session:
@@ -59,6 +72,7 @@ def create_game_waiting():
     if 'game_board' in session:
         return redirect('/play')
     categories = session['categories']
+    players = session['players']
     print 'Creating game with players:', players
     print 'Creating game with categories:', categories
     return 'creating game rn'
@@ -70,18 +84,61 @@ def create_game():
         return redirect('/')
     categories = session['categories']
     players = session['players']
-    game_board = []
-    scores = []
+    game_board = {}
+    scores = {}
     for category in categories:
-        game_board.append(questions.questiondict(category))
+        game_board[category] = questions.questiondict(category)
     for player in players:
-        scores.append({'name':player, 'score':0})
+        scores[player] = 0
+    session['game_board'] = game_board
+    session['scores'] = scores
     return redirect('/play')
 
 # display game board and scores
 @app.route('/play')
+@in_game
 def play():
+    game_board = session['game_board']
+    categories = session['categories']
+    scores = session['scores']
+    players = session['players']
+    print '=============CURRENT GAME STATUS============='
+    print 'Categories: ', categories
+    print 'Game board: ', game_board
+    print 'Players: ', players
+    print 'Scores: ', scores
+    print
     return 'playing game rn'
+
+# display a question and expect an answer
+@app.route('/question/<category>/<moolah>')
+@in_game
+def question(category, moolah):
+    categories = session['categories']
+    game_board = session['game_board']
+    if not category in categories or not moolah in game_board[category]:
+        return redirect('/play')
+    return 'displaying question: %s' % game_board[category][moolah][0]
+
+# checks given answer and redirects back to question or displays correct answer
+@app.route('/answer/<category>/<moolah>')
+@in_game
+def answer(category, moolah):
+    if not request.args.get('answer'):
+        return redirect('/question/%s/%s' % (category, moolah))
+    given_answer = request.args.get('answer')
+    actual_answer = session['game_board'][category][moolah][1]
+    return 'given: %s<br>actual: %s' % (given_answer, actual_answer)
+
+# clears game_board to restart
+@app.route('/new_game')
+@in_game
+def new_game():
+    session.pop('game_board')
+    session.pop('categories')
+    session.pop('players')
+    session.pop('scores')
+    return redirect('/')
 
 if __name__ == '__main__':
     app.run(debug=True)

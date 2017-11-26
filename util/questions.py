@@ -2,10 +2,10 @@ import urllib2
 import json
 import random
 
-f = open("util/topcategories.txt")
-catdict = eval(f.read())
-
 def questiondict(cat):
+    f = open("util/topcategories.txt")
+    catdict = eval(f.read())
+
     retdict = {}
     if cat not in catdict:
         print "error"
@@ -29,4 +29,12 @@ def questiondict(cat):
             x = -1
         x += 1
     return retdict
-print questiondict('History') #test
+
+def get_categories():
+    f = open("util/topcategories.txt")
+    catdict = eval(f.read())
+    return catdict.keys()
+
+if __name__ == '__main__':
+    print get_categories()
+    print questiondict('History') #test

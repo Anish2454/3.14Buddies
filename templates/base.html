@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html>
 
-<!-- base template -->
+  <!-- base template -->
 
-<head>
-  {% block title %}
-      <title>{{title}}</title>
-  {% endblock title %}
-</head>
+  <head>
+    {% block title %}
+    <title>{{title}}</title>
+    {% endblock title %}
+  </head>
 
   <body>
     {% block body%}
-      This is the base template
+    This is the base template
+    {% for msg in get_flashed_messages() %}
+    {{ msg }}<br>
+    {% endfor %}
     {% endblock body%}
   </body>
 </html>

@@ -28,7 +28,7 @@ Installation:
 $ pip install flask --user
 ```
 
-### Instructions
+## Instructions
 
 1. Clone this repo
   * In the terminal, run 
