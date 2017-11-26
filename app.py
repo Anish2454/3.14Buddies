@@ -1,11 +1,14 @@
 from flask import Flask, render_template, redirect, session, flash, request
 from util import questions
+import os
 
 app = Flask(__name__)
+app.secret_key = os.urandom(32)
 
 # for creating games or redirecting if game already exists in session
 @app.route('/', methods=['GET'])
 def index():
+    print "\n*** / ***"
     # check if game already exists
     if 'game_board' in session:
         return redirect('/play')
@@ -14,7 +17,7 @@ def index():
     categories = []
 
     # check for form info
-    if request.args.get('submit'):
+    if request.args.get("submit"):
         valid = True
         players = get_players_from_form()
         if len(players) == 0:
@@ -30,7 +33,7 @@ def index():
             session['players'] = players
             session['categories'] = categories
             return redirect('/create_game')
-    return render_template('base.html',
+    return render_template('home.html',
             players=players,
             categories=categories)
 
@@ -54,11 +57,13 @@ def get_categories_from_form():
 # the page itself should redirect to play
 @app.route('/create_game')
 def create_game_waiting():
+    print "\n*** /create_game ***"
     if not 'categories' in session or not 'players' in session:
         return redirect('/')
     if 'game_board' in session:
         return redirect('/play')
     categories = session['categories']
+    players = session['players']
     print 'Creating game with players:', players
     print 'Creating game with categories:', categories
     return 'creating game rn'
@@ -66,6 +71,7 @@ def create_game_waiting():
 # once game is created, redirect to play route
 @app.route('/created_game')
 def create_game():
+    print "\n*** /created_game ***"
     if not 'categories' in session or not 'players' in session:
         return redirect('/')
     categories = session['categories']
@@ -74,13 +80,16 @@ def create_game():
     scores = []
     for category in categories:
         game_board.append(questions.questiondict(category))
+        print category
     for player in players:
         scores.append({'name':player, 'score':0})
+    print game_board
     return redirect('/play')
 
 # display game board and scores
 @app.route('/play')
 def play():
+    print "\n*** /play ***"
     return 'playing game rn'
 
 if __name__ == '__main__':

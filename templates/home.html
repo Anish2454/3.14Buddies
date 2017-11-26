@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}
+  Home - Jeopardy!
+{% endblock %}
+
+{% block body %}
+  <center>
+    <h3>Welcome!</h3>
+    <form action="/", method = "GET">
+      <p>Enter Player Names</p>
+      <strong>Player 1:</strong>
+      <input type="text" name="player1"><br>
+      <strong>Player 2:</strong>
+      <input type="text" name="player2"><br>
+      <input type="submit" name ="submit" value="True">
+    </form>
+    <br>
+    <br>
+
+    {# Displays the error messages that was flashed (if any)  #}
+    {% set messages = get_flashed_messages() %}
+    {% for message in messages %}
+      <h4>{{message}}</h4>
+    {% endfor %}<!-- where eventual messages are printed -->
+    <br>
+  </center>
+{% endblock %}

@@ -3,15 +3,19 @@
 
 <!-- base template -->
 
-<head>
-  {% block title %}
-      <title>{{title}}</title>
-  {% endblock title %}
-</head>
+  <head>
+    <title> {% block title %}  {% endblock %} </title>
+  </head>
 
   <body>
     {% block body%}
       This is the base template
-    {% endblock body%}
+    {% endblock %}
+
+    {% block footer %}
+      <center>
+        <small>Copyright 3.14 Buddies 2017</small>
+      </center>
+    {% endblock %}
   </body>
 </html>
