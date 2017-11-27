@@ -4,16 +4,30 @@
   <!-- base template -->
 
   <head>
+    <!-- title -->
     <title> {% block title %} Jeopardy {% endblock %} </title>
+
+    <link rel="icon" href="static/jeopardy.jpg" type="image/jpg">
+
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css">
   </head>
 
   <body>
-    {% block body%}
+    <!-- flashed messages -->
     {% for msg in get_flashed_messages() %}
       {{ msg }}<br>
     {% endfor %}
+
+    <!-- body -->
+    {% block body%}
+
     {% endblock body%}
 
+    <!-- footer - shouldn't really change -->
     {% block footer %}
       <center>
         <small>Copyright 3.14 Buddies 2017</small>
