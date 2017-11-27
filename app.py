@@ -30,13 +30,13 @@ def index():
     if request.args.get("submit"):
         valid = True
         players = get_players_from_form()
-        if len(players) == 0:
+        if len(players) != 2:
             valid = False
-            flash('Please enter at least one player name')
+            flash('Please enter two player names')
         categories = get_categories_from_form()
         if len(categories) != 5:
             valid = False
-            flash('Please choose all five categories')
+            flash('Please choose exactly five categories')
         print 'Received players:', players
         print 'Received categories:', categories
         if valid:
@@ -45,13 +45,14 @@ def index():
             return redirect('/create_game')
     return render_template('home.html',
             players=players,
-            categories=questions.get_categories(),
-            chosen=categories)
+            categories=enumerate(questions.get_categories()))
 
 def get_players_from_form():
     players = []
-    players[0] = request.args.get('player1')
-    players[1] = request.args.get('player2')
+    if request.args.get('player1'):
+        players.append(request.args.get('player1'))
+    if request.args.get('player2'):
+        players.append(request.args.get('player2'))
     return players
 
 def get_categories_from_form():

@@ -6,12 +6,26 @@
 
 {% block body %}
   <center>
-    <h3>Welcome!</h3>
+    <h3>Welcome to Jeopardy!</h3>
+    <!-- flashed messages -->
+    {% set messages = get_flashed_messages() %}
+    {% for msg in get_flashed_messages() %}
+      <center><h4 class="text-danger">{{ msg }}</h4></center>
+    {% endfor %}
+
     <form action="/", method = "GET">
       <p>Enter Player Names</p>
-      <strong>Player 1:</strong> <input type="text" name="player1"><br>
-      <strong>Player 2:</strong> <input type="text" name="player2"><br>
-      <input type="submit" name ="submit" value="True">
+      <strong>Player 1:</strong> <input type="text" name="player1" value="{{players.0}}"><br>
+      <strong>Player 2:</strong> <input type="text" name="player2" value="{{players.1}}"><br>
+      <p>Choose five categories</p>
+      {% for index, category in categories %}
+      <label>
+        <input type="checkbox" value="{{category}}" name="category{{index}}">
+        {{category}}
+      </label>
+      {% endfor %}
+      <br>
+      <input type="submit" name ="submit">
     </form>
     <br>
     <br>

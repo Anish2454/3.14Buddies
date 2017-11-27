@@ -23,12 +23,6 @@
 
     {% endblock body%}
 
-    <!-- flashed messages -->
-    {% set messages = get_flashed_messages() %}
-    {% for msg in get_flashed_messages() %}
-      <center><h4>{{ msg }}</h4><br></center>
-    {% endfor %}
-
     <!-- footer - shouldn't really change -->
     {% block footer %}
       <center>
