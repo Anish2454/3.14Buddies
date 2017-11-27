@@ -38,3 +38,6 @@ calebS -- 2017-11-20 20:08:39
 Wrote script that processed the html for popular categories and wrote a dictionary to 
 topcategories.txt , which shows the popular categories along with the corresponding id 
 to be used with the api
+charlesW -- 2017-11-22 13:20:53
+added base template
+
