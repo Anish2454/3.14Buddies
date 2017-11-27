@@ -50,15 +50,13 @@ def index():
 
 def get_players_from_form():
     players = []
-    for i in range(1, 6):
-        player = eval('request.args.get("player%d")' % i)
-        if player:
-            players.append(player)
+    players[0] = request.args.get('player1')
+    players[1] = request.args.get('player2')
     return players
 
 def get_categories_from_form():
     categories = []
-    for i in range(1, 6):
+    for i in range(1, 20):
         category = eval('request.args.get("category%d")' % i)
         if category:
             categories.append(category)

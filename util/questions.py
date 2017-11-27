@@ -33,7 +33,9 @@ def questiondict(cat):
 def get_categories():
     f = open("util/topcategories.txt")
     catdict = eval(f.read())
-    return catdict.keys()
+    categories = catdict.keys()
+    random.shuffle(categories)
+    return categories[:20]
 
 if __name__ == '__main__':
     print get_categories()
