@@ -18,8 +18,9 @@
 
   <body>
     <!-- flashed messages -->
+    {% set messages = get_flashed_messages() %}
     {% for msg in get_flashed_messages() %}
-      {{ msg }}<br>
+      <h4>{{ msg }}</h4><br>
     {% endfor %}
 
     <!-- body -->
