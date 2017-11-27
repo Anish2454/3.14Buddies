@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html>
 
-<!-- base template -->
+  <!-- base template -->
 
-<head>
-  {% block title %}
-      <title>{{title}}</title>
-  {% endblock title %}
-</head>
+  <head>
+    <title> {% block title %} Jeopardy {% endblock %} </title>
+  </head>
 
   <body>
     {% block body%}
-      This is the base template/home page
-      <form action="index.html" method="post">
-        Player 1: <input type="text" name="player1" value="Best Player">
-        Player 2: <input type="text" name="player12" value="Bester Player">
-      </form>
+    {% for msg in get_flashed_messages() %}
+      {{ msg }}<br>
+    {% endfor %}
     {% endblock body%}
+
+    {% block footer %}
+      <center>
+        <small>Copyright 3.14 Buddies 2017</small>
+      </center>
+    {% endblock %}
   </body>
 </html>
