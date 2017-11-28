@@ -12,5 +12,3 @@ def getImage(answer): #input the description of the desired image, which is the 
     contentsraw = uResp.read()
     dat = json.loads(contentsraw)
     return dat['images'][0]['display_sizes'][0]['uri'] #outputs a url to the image
-
-

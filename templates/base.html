@@ -17,11 +17,6 @@
   </head>
 
   <body>
-    <!-- flashed messages -->
-    {% set messages = get_flashed_messages() %}
-    {% for msg in get_flashed_messages() %}
-      <h4>{{ msg }}</h4><br>
-    {% endfor %}
 
     <!-- body -->
     {% block body%}

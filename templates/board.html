@@ -5,4 +5,16 @@
 {% endblock %}
 
 {% block body %}
-{% endblock body %}
+  <table class = "table">
+    <tbody>
+      {% for category in game_board %}
+        <tr>
+          <td> {{ category }} </td>
+          {% for value in game_board[category] %}
+            <td> <a href="/question/{{category}}/{{ value }}">{{ value }} </a></td>
+          {% endfor %}
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

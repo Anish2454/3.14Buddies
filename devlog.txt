@@ -84,6 +84,7 @@ b/c we didnt add the option to select categories yet
 Add the categories manually in the url with (for example):
 /?player1=Anish&player2=Bob&category1=Annual%20Events&category2=%22one%22&category3=%22one%22&category4=%22one%22&category5=%22one%22&submit=True
 Then go to /created_game which will redirect to play
+
 charlesW -- 2017-11-27 12:41:18
 added in more templates
 
@@ -94,3 +95,13 @@ to accomplish this task. NOTE: max of 5 calls to the API per second.
 
 charlesW -- 2017-11-27 13:20:21
 worked on the templates a little and incorporated bootstrap into the design.
+
+shakilR -- 2017-11-27 18:46:53
+finished functionality for home.html (still needs styling)
+
+anishS -- 2017-11-27 18:56:34
+Added Home.html code. Loads values and links to proper question page
+Still needs styling
+
+shakilR -- 2017-11-27 19:26:23
+created waiting page for API calls
