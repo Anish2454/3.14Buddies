@@ -99,3 +99,6 @@ finished functionality for home.html (still needs styling)
 anishS -- 2017-11-27 18:56:34
 Added Home.html code. Loads values and links to proper question page
 Still needs styling
+shakilR -- 2017-11-27 19:26:23
+created waiting page for API calls
+

@@ -42,7 +42,7 @@ def index():
         if valid:
             session['players'] = players
             session['categories'] = categories
-            return redirect('/create_game')
+            return redirect('/creating_game')
     return render_template('home.html',
             players=players,
             categories=enumerate(questions.get_categories()))
@@ -65,9 +65,9 @@ def get_categories_from_form():
 
 # send to 'waiting' page until the api responds with game created
 # the page itself should redirect to '/created_game'
-@app.route('/create_game')
+@app.route('/creating_game')
 def create_game_waiting():
-    print "\n*** /create_game ***"
+    print "\n*** /creating_game ***"
     if not 'categories' in session or not 'players' in session:
         return redirect('/')
     if 'game_board' in session:
@@ -76,12 +76,12 @@ def create_game_waiting():
     players = session['players']
     print 'Creating game with players:', players
     print 'Creating game with categories:', categories
-    return 'creating game rn'
+    return render_template('waiting.html')
 
 # once game is created, redirect to play route
-@app.route('/created_game')
+@app.route('/create_game')
 def create_game():
-    print "\n*** /created_game ***"
+    print "\n*** /create_game ***"
     if not 'categories' in session or not 'players' in session:
         return redirect('/')
     categories = session['categories']
