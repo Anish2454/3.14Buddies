@@ -121,23 +121,23 @@ def question(category, moolah):
     if not category in categories or not moolah in game_board[category]:
         return redirect('/play')
     question = game_board[category][moolah][0]
-    return 'displaying question: %s' % question
-    # return render_template('question.html', question=question)
+    return render_template('display_question.html', question=question, category=category, moolah=moolah)
 
 # checks given answer and redirects back to question or displays correct answer
 @app.route('/answer/<category>/<moolah>')
 @in_game
 def answer(category, moolah):
+    categories = session['categories']
+    game_board = session['game_board']
     if not category in categories or not moolah in game_board[category]:
         return redirect('/play')
     if not request.args.get('answer'):
         return redirect('/question/%s/%s' % (category, moolah))
     given_answer = request.args.get('answer')
     actual_answer = session['game_board'][category][moolah][1]
-    return 'given: %s<br>actual: %s' % (given_answer, actual_answer)
-    #return render_template('answer.html', 
-    #        given_answer=given_answer,
-    #        actual_answer=actual_answer)
+    return render_template('display_answer.html',
+           given_answer=given_answer,
+           actual_answer=actual_answer)
 
 # clears game_board to restart
 @app.route('/new_game')

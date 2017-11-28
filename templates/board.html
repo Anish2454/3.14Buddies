@@ -7,16 +7,27 @@
 {% block body %}
   <center> <h1> Jeopardy! </h1> </center>
   <br>
-  <table class = "table">
-    <tbody>
-      {% for category in game_board %}
+  <div class="container-fluid">
+    <!-- shows the question column -->
+    <table class="table table-striped" table-layout="fixed">
+      <thead>
         <tr>
-          <th scope="row" class="bg-primary"> {{ category }} </th>
-          {% for value in game_board[category] %}
-            <td> <a href="/question/{{category}}/{{ value }}">{{ value }}</a></td>
+          {% for category in game_board %}
+            <th class="bg-primary" table-layout="fixed">{{category}}</th>
           {% endfor %}
         </tr>
-      {% endfor %}
-    </tbody>
-  </table>
+      </thead>
+      <!-- show each category's points -->
+      <tbody>
+        {% for x in range(5)%}
+          <tr>
+            {% for category in game_board %}
+              <td table-layout="fixed"><a href="/question/{{category}}/{{x * 100 + 100}}">{{x * 100 + 100}}</a></td>
+            {% endfor %}
+          </tr>
+        {% endfor%}
+      </tbody>
+    </table>
+
+    <!-- <p>Scores<p> -->
 {% endblock %}

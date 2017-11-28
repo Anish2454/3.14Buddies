@@ -15,6 +15,11 @@
   font-size: 50px;
 }
 
+table {
+  table-layout: fixed;
+  width: 150px; 
+}
+
 #text {
   padding-top: 1px;
 }
