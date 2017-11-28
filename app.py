@@ -1,5 +1,5 @@
 from flask import Flask, render_template, redirect, session, flash, request
-from util import questions
+from util import questions, images
 from functools import wraps
 import os
 
@@ -94,6 +94,7 @@ def create_game():
         scores[player] = 0
     session['game_board'] = game_board
     session['scores'] = scores
+    session['player_turn'] = players[0]
     return redirect('/play')
 
 # display game board and scores
@@ -129,15 +130,28 @@ def question(category, moolah):
 def answer(category, moolah):
     categories = session['categories']
     game_board = session['game_board']
+    player_turn = session['player_turn']
+    scores = session['scores']
     if not category in categories or not moolah in game_board[category]:
         return redirect('/play')
     if not request.args.get('answer'):
         return redirect('/question/%s/%s' % (category, moolah))
+    if request.args.get('correct'):
+        if request.args.get('correct') == 'correct':
+            scores[player_turn] += int(moolah)
+        game_board[category][moolah][2] = False
+        if player_turn == players[0]:
+            session['player_turn'] = players[1]
+        else:
+            session['player_turn'] = players[0]
+        return redirect('/play')
     given_answer = request.args.get('answer')
     actual_answer = session['game_board'][category][moolah][1]
+    image_url = images.getImage(actual_answer)
     return render_template('display_answer.html',
            given_answer=given_answer,
-           actual_answer=actual_answer)
+           actual_answer=actual_answer,
+           image_url=image_url)
 
 # clears game_board to restart
 @app.route('/new_game')
