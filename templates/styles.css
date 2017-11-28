@@ -4,6 +4,12 @@
   padding-top: 8%;
 }
 
+#round {
+  border-radius: 5px;
+  width: 500px;
+  border-width: thin;
+}
+
 #title {
   font-weight: 700;
   font-size: 50px;
@@ -21,6 +27,7 @@ h4 {
   padding-left: 5%;
   padding-right: 5%;
 }
+
 .footer {
   padding: 2%;
 }
