@@ -91,3 +91,6 @@ calebS -- 2017-11-26 14:00:00
 Wrote method that takes a jeopardy answer as an input and returns
 a url to the most popular image result. The gettyimages API was used
 to accomplish this task. NOTE: max of 5 calls to the API per second.
+
+charlesW -- 2017-11-27 13:20:21
+worked on the templates a little and incorporated bootstrap into the design.
