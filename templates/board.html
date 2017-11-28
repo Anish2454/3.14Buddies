@@ -5,13 +5,15 @@
 {% endblock %}
 
 {% block body %}
+  <center> <h1> Jeopardy! </h1> </center>
+  <br>
   <table class = "table">
     <tbody>
       {% for category in game_board %}
         <tr>
-          <td> {{ category }} </td>
+          <th scope="row" class="bg-primary"> {{ category }} </th>
           {% for value in game_board[category] %}
-            <td> <a href="/question/{{category}}/{{ value }}">{{ value }} </a></td>
+            <td> <a href="/question/{{category}}/{{ value }}">{{ value }}</a></td>
           {% endfor %}
         </tr>
       {% endfor %}
