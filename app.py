@@ -57,7 +57,7 @@ def get_players_from_form():
 
 def get_categories_from_form():
     categories = []
-    for i in range(1, 20):
+    for i in range(0, 20):
         category = eval('request.args.get("category%d")' % i)
         if category:
             categories.append(category)
@@ -110,7 +110,7 @@ def play():
     print 'Players: ', players
     print 'Scores: ', scores
     print
-    return 'playing game rn'
+    return render_template('board.html', game_board = game_board, categories = categories)
 
 # display a question and expect an answer
 @app.route('/question/<category>/<moolah>')
