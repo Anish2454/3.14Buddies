@@ -17,7 +17,7 @@
 
 table {
   table-layout: fixed;
-  width: 150px; 
+  width: 150px;
 }
 
 #text {
@@ -35,4 +35,8 @@ h4 {
 
 .footer {
   padding: 2%;
+}
+
+#title_game_board{
+  color: Blue;
 }

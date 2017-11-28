@@ -2,7 +2,7 @@ import urllib2
 import json
 
 def getKey():
-    f = open("gettyKey.txt")
+    f = open("util/gettyKey.txt")
     key = f.read()
     return key[:-1] #Removes Newline
 

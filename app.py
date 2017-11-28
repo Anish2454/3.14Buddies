@@ -147,7 +147,9 @@ def answer(category, moolah):
         return redirect('/play')
     given_answer = request.args.get('answer')
     actual_answer = session['game_board'][category][moolah][1]
-    image_url = images.getImage(actual_answer)
+    requestimg = actual_answer.replace(" ", "%20")
+    image_url = images.getImage(requestimg)
+    print image_url
     return render_template('display_answer.html',
            given_answer=given_answer,
            actual_answer=actual_answer,
