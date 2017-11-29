@@ -113,7 +113,7 @@ def play():
     print 'Scores: ', scores
     print
     return render_template('board.html',
-            game_board = game_board, 
+            game_board = game_board,
             categories = categories,
             players=players,
             scores=scores,
@@ -159,7 +159,7 @@ def answer(category, moolah):
         return redirect('/question/%s/%s' % (category, moolah))
     given_answer = request.args.get('answer')
     actual_answer = session['game_board'][category][moolah][1]
-    requestimg = actual_answer.replace(" ", "%20")
+    requestimg = actual_answer
     image_url = images.getImage(requestimg)
     return render_template('display_answer.html',
            given_answer=given_answer,

@@ -3,7 +3,7 @@ import urllib
 import json
 
 def getKey():
-    f = open("util/gettyKey.txt")
+    f = open("util/gettykey.txt")
     key = f.read()
     return key[:-1] #Removes Newline
 
@@ -18,6 +18,3 @@ def getImage(answer): #input the description of the desired image, which is the 
         return "https://rlv.zcache.com/sad_smiley_face_classic_round_sticker-r364e0eed23d248b982dc0b717710afc1_v9wth_8byvr_324.jpg"
     else:
         return dat['images'][0]['display_sizes'][0]['uri'] #outputs a url to the image
-
-
-
