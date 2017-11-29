@@ -38,7 +38,7 @@ $ pip install flask --user
   * Head over to the [Registration Page](https://developer.gettyimages.com/member/register) and sign up.
   * Check the email you signed up with for a confirmation link. Click the link.
   * Once you click the confirmation link, you should see your key listed under your name.
-  * Copy this link into the "gettykeys.txt" file in the util folder of the project
+  * Copy this link into the "gettykeys.txt" file in the util folder of the project. Add it as the first line without any trialing spaces
   
 3. Run the application
   * In the terminal, run
@@ -46,3 +46,7 @@ $ pip install flask --user
     $ python app.py
     ```
   * Navigate to "localhost:5000" in your browser and have fun!
+  
+## Credits
+
+Jeopardy Font: [Gyparody](http://typodermicfonts.com/gyparody/)
