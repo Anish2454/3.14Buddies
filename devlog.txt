@@ -135,3 +135,6 @@ Added Jeopardy Fonts, colors
 shakilR -- 2017-11-28 22:09:49
 Worked on styles and preventing choosing new questions
 
+anishS -- 2017-11-28 22:15:34
+Added Try/except around Open
+Final cleanup
