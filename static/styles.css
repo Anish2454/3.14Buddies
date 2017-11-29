@@ -4,10 +4,11 @@
   padding-top: 8%;
 }
 
-#round {
-  border-radius: 5px;
-  width: 500px;
+input.round {
+  border-radius: 2px;
+  width: 100px;
   border-width: thin;
+  padding:5px;
 }
 
 #title {
