@@ -111,3 +111,6 @@ updated a lot of the templates and fixed template app.py interactions
 
 anishS -- 2017-11-28 17:51:43
 Added Images to answer page
+calebS -- 2017-11-28 19:14:32
+fixed spaces and other weird characters when inputted to receive an image from the gettyimage api
+
