@@ -5,8 +5,8 @@ Board - Jeopardy!
 {% endblock %}
 
 {% block body %}
-<center> 
-  <h1 id="title_game_board"> Jeopardy! </h1> 
+<center>
+  <h1 id="title_game_board"> Jeopardy! </h1>
   <h2>It's {{ player_turn }}'s turn</h2>
 </center>
 <br>
@@ -38,7 +38,12 @@ Board - Jeopardy!
 
     <center>
       <p><h2>Scores:</h2></p>
-      {{players[0]}}: {{scores[players[0]]}}
-      {{players[1]}}: {{scores[players[1]]}}
+      <h3>{{players[0]}}: {{scores[players[0]]}}
+      {{players[1]}}: {{scores[players[1]]}}</h3>
     </center>
+
+    <br>
+    <br>
+    <br>
+    <a href="/game_over">End Early</a>
 {% endblock %}
