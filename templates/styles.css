@@ -1,0 +1,38 @@
+.jumbotron {
+  padding-left: 8%;
+  padding-right: 8%;
+  padding-top: 8%;
+}
+
+#round {
+  border-radius: 5px;
+  width: 500px;
+  border-width: thin;
+}
+
+#title {
+  font-weight: 700;
+  font-size: 50px;
+}
+
+table {
+  table-layout: fixed;
+  width: 150px; 
+}
+
+#text {
+  padding-top: 1px;
+}
+
+h4 {
+  font-style: italic;
+}
+
+#well {
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.footer {
+  padding: 2%;
+}
