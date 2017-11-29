@@ -195,11 +195,13 @@ def new_game():
 def game_over():
     score = session['scores']
     players = session['players']
-    winner = players[0]
-    if(score[players[1]] > score[winner]):
-        winner = players[1]
-    if(score[players[1]] == score[winner]):
+    winner = ""
+    if(score[players[0]] == score[players[1]]):
         winner = "It's a Tie!"
+    else:
+        winner = players[0]
+        if(score[players[1]] > score[winner]):
+            winner = players[1]
     return render_template("game_over.html", winner=winner)
 
 if __name__ == '__main__':

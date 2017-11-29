@@ -3,13 +3,22 @@ import urllib
 import json
 
 def getKey():
-    f = open("util/gettykey.txt")
-    key = f.read()
-    return key[:-1] #Removes Newline
+    try:
+        f = open("util/gettykeys.txt")
+        key = f.read()
+        return key.strip() #Removes Whitespace
+    except Exception as e:
+        print "****API KEY NOT FOUND******"
+        return ""
 
 def getImage(answer): #input the description of the desired image, which is the answer to the jeopardy question
     answer = urllib.quote(answer)
-    url = urllib2.Request("https://api.gettyimages.com/v3/search/images?sort_order=most_popular&phrase=" + answer, headers={ 'Api-Key' : getKey()})
+    key = getKey()
+    #print key
+    if key != "":
+        url = urllib2.Request("https://api.gettyimages.com/v3/search/images?sort_order=most_popular&phrase=" + answer, headers={ 'Api-Key' : getKey()})
+    else:
+        return key
     print url
     uResp = urllib2.urlopen( url )
     contentsraw = uResp.read()
