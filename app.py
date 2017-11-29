@@ -105,6 +105,7 @@ def play():
     categories = session['categories']
     scores = session['scores']
     players = session['players']
+    player_turn = session['player_turn']
     print '=============CURRENT GAME STATUS============='
     print 'Categories: ', categories
     print 'Game board: ', game_board
@@ -114,6 +115,9 @@ def play():
     return render_template('board.html',
             game_board = game_board, 
             categories = categories,
+            players=players,
+            scores=scores,
+            player_turn=player_turn,
             str=str)
 
 # display a question and expect an answer
@@ -123,6 +127,8 @@ def question(category, moolah):
     categories = session['categories']
     game_board = session['game_board']
     if not category in categories or not moolah in game_board[category]:
+        return redirect('/play')
+    if not game_board[category][moolah][2]:
         return redirect('/play')
     question = game_board[category][moolah][0]
     return render_template('display_question.html', question=question, category=category, moolah=moolah)
@@ -137,6 +143,8 @@ def answer(category, moolah):
     player_turn = session['player_turn']
     scores = session['scores']
     if not category in categories or not moolah in game_board[category]:
+        return redirect('/play')
+    if not game_board[category][moolah][2]:
         return redirect('/play')
     if request.args.get('correct'):
         if request.args.get('correct') == 'I was correct':
