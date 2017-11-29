@@ -101,6 +101,10 @@ def create_game():
 @app.route('/play')
 @in_game
 def play():
+    if 'current_question' in session:
+        category = session['current_question'][0]
+        moolah = session['current_question'][1]
+        return redirect('/question/%s/%s' % (category, moolah))
     game_board = session['game_board']
     categories = session['categories']
     scores = session['scores']
@@ -131,7 +135,11 @@ def question(category, moolah):
     if not game_board[category][moolah][2]:
         return redirect('/play')
     question = game_board[category][moolah][0]
-    return render_template('display_question.html', question=question, category=category, moolah=moolah)
+    session['current_question'] = [category, moolah]
+    return render_template('display_question.html', 
+            question=question, 
+            category=category, 
+            moolah=moolah)
 
 # checks given answer and redirects back to question or displays correct answer
 @app.route('/answer/<category>/<moolah>')
@@ -154,6 +162,7 @@ def answer(category, moolah):
             session['player_turn'] = players[1]
         else:
             session['player_turn'] = players[0]
+        session.pop('current_question')
         return redirect('/play')
     if not request.args.get('answer'):
         return redirect('/question/%s/%s' % (category, moolah))
@@ -171,10 +180,7 @@ def answer(category, moolah):
 @app.route('/new_game')
 @in_game
 def new_game():
-    session.pop('game_board')
-    session.pop('categories')
-    session.pop('players')
-    session.pop('scores')
+    session.clear()
     return redirect('/')
 
 if __name__ == '__main__':
