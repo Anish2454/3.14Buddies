@@ -111,7 +111,10 @@ def play():
     print 'Players: ', players
     print 'Scores: ', scores
     print
-    return render_template('board.html', game_board = game_board, categories = categories)
+    return render_template('board.html',
+            game_board = game_board, 
+            categories = categories,
+            str=str)
 
 # display a question and expect an answer
 @app.route('/question/<category>/<moolah>')
@@ -130,14 +133,13 @@ def question(category, moolah):
 def answer(category, moolah):
     categories = session['categories']
     game_board = session['game_board']
+    players = session['players']
     player_turn = session['player_turn']
     scores = session['scores']
     if not category in categories or not moolah in game_board[category]:
         return redirect('/play')
-    if not request.args.get('answer'):
-        return redirect('/question/%s/%s' % (category, moolah))
     if request.args.get('correct'):
-        if request.args.get('correct') == 'correct':
+        if request.args.get('correct') == 'I was correct':
             scores[player_turn] += int(moolah)
         game_board[category][moolah][2] = False
         if player_turn == players[0]:
@@ -145,15 +147,17 @@ def answer(category, moolah):
         else:
             session['player_turn'] = players[0]
         return redirect('/play')
+    if not request.args.get('answer'):
+        return redirect('/question/%s/%s' % (category, moolah))
     given_answer = request.args.get('answer')
     actual_answer = session['game_board'][category][moolah][1]
     requestimg = actual_answer.replace(" ", "%20")
     image_url = images.getImage(requestimg)
-    print image_url
     return render_template('display_answer.html',
            given_answer=given_answer,
            actual_answer=actual_answer,
-           image_url=image_url)
+           image_url=image_url,
+           answer_url='/answer/%s/%s' % (category, moolah))
 
 # clears game_board to restart
 @app.route('/new_game')
