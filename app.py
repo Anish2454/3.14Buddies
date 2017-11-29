@@ -33,6 +33,9 @@ def index():
         if len(players) != 2:
             valid = False
             flash('Please enter two player names')
+        if len(players) == 2 and players[0] == players[1]:
+            valid = False
+            flash('Please enter two different names')
         categories = get_categories_from_form()
         if len(categories) != 5:
             valid = False
