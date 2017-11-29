@@ -105,6 +105,15 @@ Still needs styling
 
 shakilR -- 2017-11-27 19:26:23
 created waiting page for API calls
+
 charlesW -- 2017-11-27 22:34:00
 updated a lot of the templates and fixed template app.py interactions
+
+anishS -- 2017-11-28 17:51:43
+Added Images to answer page
+calebS -- 2017-11-28 19:14:32
+fixed spaces and other weird characters when inputted to receive an image from the gettyimage api
+
+shakilR -- 2017-11-28 19:22:32
+finished keeping track of scores and disabling answered questions
 

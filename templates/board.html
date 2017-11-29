@@ -1,37 +1,46 @@
 {% extends "base.html" %}
 
 {% block title %}
-  Board - Jeopardy!
+Board - Jeopardy!
 {% endblock %}
 
 {% block body %}
-  <center> <h1> Jeopardy! </h1> </center>
-  <br>
-  <div class="container-fluid">
-    <!-- shows the question column -->
-    <table class="table table-striped" table-layout="fixed">
-      <thead>
-        <tr>
-          {% for category in game_board %}
-            <th class="bg-primary" table-layout="fixed">{{category}}</th>
-          {% endfor %}
-        </tr>
-      </thead>
-      <!-- show each category's points -->
-      <tbody>
-        {% for x in range(5)%}
-          <tr>
-            {% for category in game_board %}
-              <td table-layout="fixed"><a href="/question/{{category}}/{{x * 100 + 100}}">{{x * 100 + 100}}</a></td>
-            {% endfor %}
-          </tr>
-        {% endfor%}
-      </tbody>
-    </table>
+<center> <h1 id="title_game_board"> Jeopardy! </h1> </center>
+<br>
+<div class="container-fluid">
+  <!-- shows the question column -->
+  <table class="table table-striped" table-layout="fixed">
+    <thead>
+      <tr>
+        {% for category in game_board %}
+        <th class="bg-primary" table-layout="fixed">{{category}}</th>
+        {% endfor %}
+      </tr>
+    </thead>
+    <!-- show each category's points -->
+    <tbody>
+      {% for x in range(5)%}
+      <tr>
+        {% for category in game_board %}
+        {% if game_board[category][str(x*100+100)][2] %}
+        <td table-layout="fixed"><a href="/question/{{category}}/{{x * 100 + 100}}">{{x * 100 + 100}}</a></td>
+        {% else %}
+        <td table-layout="fixed">{{x * 100 + 100}}</td>
+        {% endif %}
+        {% endfor %}
+      </tr>
+      {% endfor%}
+    </tbody>
+  </table>
 
+<<<<<<< HEAD
     <center>
       <p><h2>Scores:</h2></p>
       {{players[0]}}: {{scores[players[0]]}}
       {{players[1]}}: {{scores[players[1]]}}
     </center>
 {% endblock %}
+=======
+  <!-- <p>Scores<p> -->
+  {% endblock %}
+>>>>>>> 05b3cb8eab828434a55508e517d3875c02a54150
