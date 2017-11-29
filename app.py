@@ -136,9 +136,9 @@ def question(category, moolah):
         return redirect('/play')
     question = game_board[category][moolah][0]
     session['current_question'] = [category, moolah]
-    return render_template('display_question.html', 
-            question=question, 
-            category=category, 
+    return render_template('display_question.html',
+            question=question,
+            category=category,
             moolah=moolah)
 
 # checks given answer and redirects back to question or displays correct answer
@@ -182,6 +182,16 @@ def answer(category, moolah):
 def new_game():
     session.clear()
     return redirect('/')
+
+@app.route('/game_over')
+@in_game
+def game_over():
+    score = session['scores']
+    players = session['players']
+    winner = players[0]
+    if(score[players[1]] > score[winner]):
+        winner = players[1]
+    return render_template("game_over.html", winner=winner)
 
 if __name__ == '__main__':
     app.run(debug=True)

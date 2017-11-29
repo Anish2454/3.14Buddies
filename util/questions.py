@@ -21,7 +21,7 @@ def questiondict(cat):
     i=1
     while i < 6:
         if clues[x]["value"] == i*100:
-            retdict[i*100] = [ clues[x]["question"], clues[x]["answer"], True ]
+            retdict[i*100] = [ clues[x]["question"], clues[x]["answer"].replace("<i>", "").replace("</i>",""), True ]
             i += 1
             x = -1
         if x >= len(clues):
