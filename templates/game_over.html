@@ -5,8 +5,12 @@
 {% endblock %}
 
 {% block body %}
-  <div class="jumbotron" id="jumbo">
-    <h1 id="title">CONGRATULATIONS</h1>
-    <p>{{winner}} won!</p>
-  </div>
+  <center>
+    <div class="jumbotron" id="jumbo">
+      <h1 id="title">CONGRATULATIONS</h1>
+      <p>{{winner}} won!</p>
+    </div>
+
+    <p><a href="/new_game">Another Round?</a></p>
+  </center>
 {% endblock body %}
