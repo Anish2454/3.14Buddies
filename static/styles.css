@@ -31,6 +31,10 @@ table {
   width: 150px;
 }
 
+th {
+  text-align: center;
+}
+
 #text {
   padding-top: 1px;
 }
@@ -56,6 +60,7 @@ body {
 
 input {
   color: black;
+  font-family: jeopardy;
 }
 
 .board_tile{
