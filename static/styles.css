@@ -10,6 +10,10 @@
   background-color: #081dd5;
 }
 
+.jumbotron p{
+  color: #081dd5;
+}
+
 #round {
   border-radius: 5px;
   width: 500px;
@@ -19,15 +23,12 @@
 #title {
   font-weight: 700;
   font-size: 50px;
+  color: #081dd5;
 }
 
 table {
   table-layout: fixed;
   width: 150px;
-}
-
-th {
-  text-align: center;
 }
 
 #text {
