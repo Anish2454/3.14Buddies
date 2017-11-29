@@ -46,3 +46,7 @@ $ pip install flask --user
     $ python app.py
     ```
   * Navigate to "localhost:5000" in your browser and have fun!
+  
+## Credits
+
+Jeopardy Font: [Gyparody](http://typodermicfonts.com/gyparody/)
