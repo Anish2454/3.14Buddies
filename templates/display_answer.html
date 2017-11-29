@@ -8,18 +8,11 @@
 <center>
 <p><h3>This is your answer: {{given_answer}}</h3></p>
 <p><h3>This is the actual answer: {{actual_answer}}</h3></p>
-<<<<<<< HEAD
-<p><img src={{image_url}} height="500"></p>
-<div class="container">
-  <form class="form" action="index.html" method="post">
-    <input type="radio" name="" value="">
-=======
 <img src="{{ image_url }}" height="300"></img>
 <div class="container">
   <form class="form" action="{{ answer_url }}" method="get">
     <input type="submit" value="I was correct" name="correct">
     <input type="submit" value="I was incorrect" name="correct">
->>>>>>> 05b3cb8eab828434a55508e517d3875c02a54150
   </form>
 </div>
 </center>
