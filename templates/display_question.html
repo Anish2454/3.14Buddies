@@ -12,7 +12,9 @@
     <form action="/answer/{{category}}/{{moolah}}", method = "GET">
       <div class="form-group">
         <label for="answer">Answer:
-          <input type="text" placeholder="Obvious Answer #{{ range(1,50)|random() }}" name="answer"></label>
+          <input type="text" placeholder="Obvious Answer #{{ range(1,50)|random() }}" name="answer">
+        </label>
+        <input type="submit">
       </div>
   </center>
 {% endblock body %}

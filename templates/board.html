@@ -5,7 +5,10 @@ Board - Jeopardy!
 {% endblock %}
 
 {% block body %}
-<center> <h1 id="title_game_board"> Jeopardy! </h1> </center>
+<center> 
+  <h1 id="title_game_board"> Jeopardy! </h1> 
+  <h2>It's {{ player_turn }}'s turn</h2>
+</center>
 <br>
 <div class="container-fluid">
   <!-- shows the question column -->
