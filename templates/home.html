@@ -9,30 +9,35 @@
 {% block body %}
   <center>
     <h3>Welcome to Jeopardy!</h3>
+    <br>
 
     <!-- flashed messages -->
     {% set messages = get_flashed_messages() %}
     {% for msg in get_flashed_messages() %}
       <h4 class="text-danger">{{ msg }}</h4>
     {% endfor %}
+    <br>
 
     <form action="/", method = "GET">
       <p>Enter Player Names</p>
       <div class="form-group">
         <label for="player1">Player 1:
-        <input type="text" placeholder="Big Bob the Bobth" name="player1"></label>
+        <input class = "input" type="text" placeholder="Big Bob the Bobth" name="player1"></label>
       </div>
+      <br>
       <div class="form-group">
         <label for="player2">Player 2:
-        <input type="text" placeholder="Skinny Sally the Sallard" name="player2"></label>
+        <input class = "input" type="text" placeholder="Skinny Sally the Sallard" name="player2"></label>
       </div>
 
       <p>Choose Five Categories</p>
+      <br>
       {% for index, category in categories %}
         <label>
           <input type="checkbox" value="{{category}}" name="category{{index}}">
           {{category}}
         </label>
+        <br>
       {% endfor %}
 
       <br>

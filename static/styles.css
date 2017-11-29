@@ -1,14 +1,18 @@
+@font-face{
+  font-family: jeopardy;
+  src: url(gyparody_hv.ttf);
+}
+
 .jumbotron {
   padding-left: 8%;
   padding-right: 8%;
   padding-top: 8%;
 }
 
-input.round {
-  border-radius: 2px;
-  width: 100px;
+#round {
+  border-radius: 5px;
+  width: 500px;
   border-width: thin;
-  padding:5px;
 }
 
 #title {
@@ -38,6 +42,26 @@ h4 {
   padding: 2%;
 }
 
-#title_game_board{
-  color: Blue;
+body {
+  background-color: #081dd5;
+  font-family: jeopardy;
+  color: #fffd19;
+}
+
+.input{
+  color: Black;
+}
+
+.board_tile{
+  font-size: 25px;
+  color: #fffd19;
+}
+
+.board_tile_clicked{
+  font-size: 25px;
+  color: #081dd5;
+}
+
+#board{
+  font-size: 20px;
 }
