@@ -95,6 +95,7 @@ def create_game():
     session['game_board'] = game_board
     session['scores'] = scores
     session['player_turn'] = players[0]
+    session['questions_answered'] = 0
     return redirect('/play')
 
 # display game board and scores
@@ -105,6 +106,8 @@ def play():
         category = session['current_question'][0]
         moolah = session['current_question'][1]
         return redirect('/question/%s/%s' % (category, moolah))
+    if session['questions_answered'] >= 25:
+        return redirect('/game_over')
     game_board = session['game_board']
     categories = session['categories']
     scores = session['scores']
@@ -163,6 +166,7 @@ def answer(category, moolah):
         else:
             session['player_turn'] = players[0]
         session.pop('current_question')
+        session['questions_answered'] += 1
         return redirect('/play')
     if not request.args.get('answer'):
         return redirect('/question/%s/%s' % (category, moolah))
