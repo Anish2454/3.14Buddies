@@ -8,7 +8,11 @@
   <center>
     <div class="jumbotron" id="jumbo">
       <h1 id="title">CONGRATULATIONS</h1>
+      {% if winner == "It's a Tie!" %}
+      <p>{{winner}}</p>
+      {% else %}
       <p>{{winner}} won!</p>
+      {% endif %}
     </div>
 
     <p><a href="/new_game">Another Round?</a></p>

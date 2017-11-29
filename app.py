@@ -192,7 +192,7 @@ def game_over():
     if(score[players[1]] > score[winner]):
         winner = players[1]
     if(score[players[1]] == score[winner]):
-        winner = "It's A Tie!"
+        winner = "It's a Tie!"
     return render_template("game_over.html", winner=winner)
 
 if __name__ == '__main__':
