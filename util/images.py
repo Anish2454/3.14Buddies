@@ -14,6 +14,10 @@ def getImage(answer): #input the description of the desired image, which is the 
     uResp = urllib2.urlopen( url )
     contentsraw = uResp.read()
     dat = json.loads(contentsraw)
-    return dat['images'][0]['display_sizes'][0]['uri'] #outputs a url to the image
+    if len(dat['images']) == 0:
+        return "https://rlv.zcache.com/sad_smiley_face_classic_round_sticker-r364e0eed23d248b982dc0b717710afc1_v9wth_8byvr_324.jpg"
+    else:
+        return dat['images'][0]['display_sizes'][0]['uri'] #outputs a url to the image
+
 
 
